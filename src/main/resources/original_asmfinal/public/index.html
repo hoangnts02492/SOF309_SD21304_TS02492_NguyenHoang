@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conbovuive Gear | Gaming Gear & Linh Kiện PC Cao Cấp</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS Output -->
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body class="bg-[#09090b] text-gray-100 font-sans antialiased selection:bg-rose-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-[9999] flex flex-col gap-2 pointer-events-none max-w-sm w-full"></div>
+
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-b border-zinc-800 text-xs py-2 px-4 text-center text-zinc-400">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <span class="hidden md:inline-flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Hệ thống phân phối linh kiện PC & Gear chính hãng Việt Nam</span>
+            </span>
+            <p class="mx-auto md:mx-0 font-medium text-zinc-300">
+                ⚡ <strong class="text-white">FREESHIP</strong> ĐƠN TỪ 2.000.000Đ | BẢO HÀNH 1 ĐỔI 1 TRONG 30 NGÀY | MÃ: <span class="text-rose-400 font-bold">GEARVIP10</span> (-10%)
+            </p>
+            <span class="hidden lg:flex items-center gap-4 text-zinc-400 text-xs">
+                <span><i class="fa-solid fa-phone text-zinc-500 mr-1"></i> 1900 6868</span>
+                <span><i class="fa-solid fa-location-dot text-zinc-500 mr-1"></i> Hà Nội & TP.HCM</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Site Header -->
+    <header class="sticky top-0 z-40 w-full glass-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="lg:hidden p-2 text-zinc-400 hover:text-white" aria-label="Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-violet-600 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-rose-500/20 group-hover:scale-105 transition">
+                        ⚡
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center">
+                            CONBOVUIVE<span class="text-rose-500 ml-1">GEAR</span>
+                        </div>
+                        <div class="text-[10px] text-zinc-400 font-semibold tracking-widest uppercase">Pro Gaming & High-End PC</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation Links with Mega Dropdown -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="#" class="text-sm font-semibold text-white transition hover:text-rose-400">Trang Chủ</a>
+                <a href="#featured" class="text-sm font-semibold text-zinc-300 transition hover:text-rose-400">Sản Phẩm</a>
+                
+                <!-- Mega Dropdown Trigger -->
+                <div class="relative group py-6">
+                    <button class="flex items-center gap-1.5 text-sm font-semibold text-zinc-300 group-hover:text-white transition">
+                        <span>Danh Mục</span>
+                        <i class="fa-solid fa-chevron-down text-[10px] transition group-hover:rotate-180"></i>
+                    </button>
+
+                    <!-- Mega Dropdown Panel -->
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 w-[780px] p-6 rounded-2xl glass-panel shadow-2xl border border-zinc-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 grid grid-cols-4 gap-6">
+                        <!-- Col 1: Mouse -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-zinc-800">
+                                <i class="fa-solid fa-computer-mouse text-rose-400 text-sm"></i>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Chuột Gaming</h4>
+                            </div>
+                            <ul class="space-y-2 text-xs text-zinc-400">
+                                <li><a href="#featured" onclick="filterBrand('mouse', 'Logitech')" class="hover:text-white transition block hover:translate-x-1">Logitech G Pro</a></li>
+                                <li><a href="#featured" onclick="filterBrand('mouse', 'Razer')" class="hover:text-white transition block hover:translate-x-1">Razer Viper / DeathAdder</a></li>
+                                <li><a href="#featured" onclick="filterBrand('mouse', 'ATK')" class="hover:text-white transition block hover:translate-x-1">ATK Blazing Sky 8K</a></li>
+                                <li><a href="#featured" onclick="filterBrand('mouse', 'Mchose')" class="hover:text-white transition block hover:translate-x-1">Mchose A5 / AX5</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 2: Keyboard -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-zinc-800">
+                                <i class="fa-solid fa-keyboard text-cyan-400 text-sm"></i>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Bàn Phím Cơ</h4>
+                            </div>
+                            <ul class="space-y-2 text-xs text-zinc-400">
+                                <li><a href="#featured" onclick="filterBrand('keyboard', 'Wooting')" class="hover:text-white transition block hover:translate-x-1">Wooting 60HE+</a></li>
+                                <li><a href="#featured" onclick="filterBrand('keyboard', 'ATK')" class="hover:text-white transition block hover:translate-x-1">ATK RS7 Rapid Trigger</a></li>
+                                <li><a href="#featured" onclick="filterBrand('keyboard', 'Mchose')" class="hover:text-white transition block hover:translate-x-1">Mchose GX87 Nhôm CNC</a></li>
+                                <li><a href="#featured" onclick="filterBrand('keyboard', 'Razer')" class="hover:text-white transition block hover:translate-x-1">Razer Huntsman V3</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 3: Monitor -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-zinc-800">
+                                <i class="fa-solid fa-display text-emerald-400 text-sm"></i>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Màn Hình Gaming</h4>
+                            </div>
+                            <ul class="space-y-2 text-xs text-zinc-400">
+                                <li><a href="#featured" onclick="filterBrand('monitor', 'Zowie')" class="hover:text-white transition block hover:translate-x-1">BenQ Zowie 360Hz</a></li>
+                                <li><a href="#featured" onclick="filterBrand('monitor', 'AOC')" class="hover:text-white transition block hover:translate-x-1">AOC Gaming 165Hz IPS</a></li>
+                                <li><a href="#featured" onclick="filterBrand('monitor', 'Asus')" class="hover:text-white transition block hover:translate-x-1">Asus ROG Swift OLED</a></li>
+                                <li><a href="#featured" onclick="filterBrand('monitor', 'Samsung')" class="hover:text-white transition block hover:translate-x-1">Samsung Odyssey G9</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Col 4: GPU -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-3 pb-2 border-b border-zinc-800">
+                                <i class="fa-solid fa-microchip text-amber-400 text-sm"></i>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-white">Card Đồ Họa</h4>
+                            </div>
+                            <ul class="space-y-2 text-xs text-zinc-400">
+                                <li><a href="#featured" onclick="filterBrand('gpu', 'Asus')" class="hover:text-white transition block hover:translate-x-1">NVIDIA RTX 5090</a></li>
+                                <li><a href="#featured" onclick="filterBrand('gpu', 'Colorful')" class="hover:text-white transition block hover:translate-x-1">Colorful iGame Ultra W</a></li>
+                                <li><a href="#featured" onclick="filterBrand('gpu', 'MSI')" class="hover:text-white transition block hover:translate-x-1">MSI Gaming X Trio</a></li>
+                                <li><a href="#featured" onclick="filterBrand('gpu', 'Zotac')" class="hover:text-white transition block hover:translate-x-1">Zotac Twin Edge</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#flashSale" class="text-sm font-semibold text-rose-400 flex items-center gap-1.5 transition hover:text-rose-300">
+                    <i class="fa-solid fa-fire animate-bounce"></i> Flash Sale
+                </a>
+                <a href="#about" class="text-sm font-semibold text-zinc-300 transition hover:text-rose-400">Về Chúng Tôi</a>
+            </nav>
+
+            <!-- Actions Bar: Search, Wishlist, Account, Cart -->
+            <div class="flex items-center gap-3 sm:gap-4">
+                <!-- Search input with shortcut hint -->
+                <div class="relative hidden sm:block">
+                    <input type="text" id="searchInput" 
+                           placeholder="Tìm chuột, phím, GPU..." 
+                           class="w-48 lg:w-64 bg-zinc-900 border border-zinc-800 focus:border-zinc-500 rounded-xl px-4 py-2 pl-9 pr-12 text-xs text-white placeholder-zinc-500 outline-none transition focus:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+                    <kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-zinc-400 bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded">Ctrl+K</kbd>
+                </div>
+
+                <!-- Account Button with Dropdown -->
+                <div class="relative">
+                    <button id="accountBtn" 
+                            class="flex items-center gap-2 px-3 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition text-zinc-300 hover:text-white">
+                        <i class="fa-regular fa-circle-user text-base"></i>
+                        <span id="accountLabel" class="hidden sm:inline text-xs font-semibold">Tài khoản</span>
+                    </button>
+
+                    <!-- User Menu Dropdown -->
+                    <div id="userDropdown" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-zinc-900 border border-zinc-800 shadow-2xl p-2 z-50 text-xs">
+                        <div class="px-3 py-2 border-b border-zinc-800 mb-1">
+                            <p class="text-zinc-400 text-[11px]">Đăng nhập bởi</p>
+                            <p id="userGreeting" class="font-bold text-white truncate">Member</p>
+                        </div>
+                        <button id="viewOrdersBtn" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-zinc-800 text-zinc-300 hover:text-white transition text-left">
+                            <i class="fa-solid fa-clock-rotate-left text-zinc-500"></i> Lịch sử đơn hàng
+                        </button>
+                        <button id="logoutBtn" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-rose-500/10 text-rose-400 transition text-left mt-1">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cart Button with badge -->
+                <button id="cartToggleBtn" 
+                        class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-white hover:bg-zinc-200 text-black transition shadow-lg shadow-white/10" 
+                        aria-label="Giỏ hàng">
+                    <i class="fa-solid fa-bag-shopping text-sm"></i>
+                    <span id="cartCount" class="absolute -top-1.5 -right-1.5 min-w-[20px] h-5 px-1 bg-rose-600 text-white font-extrabold text-[10px] rounded-full flex items-center justify-center border-2 border-[#09090b]">
+                        0
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="mobileDrawer" class="fixed inset-y-0 left-0 w-72 bg-zinc-900 border-r border-zinc-800 z-50 transform -translate-x-full transition-transform duration-300 ease-in-out p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between pb-6 border-b border-zinc-800 mb-6">
+                <span class="font-bold text-white text-base">MENU ĐIỀU HƯỚNG</span>
+                <button id="closeMobileMenuBtn" class="p-2 text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <nav class="space-y-4">
+                <a href="#" class="mobile-nav-link block font-semibold text-sm text-white hover:text-rose-400">Trang Chủ</a>
+                <a href="#featured" class="mobile-nav-link block font-semibold text-sm text-zinc-300 hover:text-rose-400">Sản Phẩm Trọng Tâm</a>
+                <a href="#categories" class="mobile-nav-link block font-semibold text-sm text-zinc-300 hover:text-rose-400">Danh Mục Nổi Bật</a>
+                <a href="#flashSale" class="mobile-nav-link block font-semibold text-sm text-rose-400">⚡ Flash Sale</a>
+                <a href="#about" class="mobile-nav-link block font-semibold text-sm text-zinc-300 hover:text-rose-400">Về Chúng Tôi</a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-zinc-800 text-xs text-zinc-400">
+            <p class="font-bold text-white mb-1">Hotline Hỗ Trợ</p>
+            <p class="text-rose-400 font-bold text-sm">1900 6868</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO BANNER SLIDER -->
+        <section class="relative w-full h-[540px] sm:h-[600px] overflow-hidden bg-black" id="heroSliderContainer">
+            <!-- Slide 1 -->
+            <div class="hero-slide absolute inset-0 w-full h-full flex items-center transition-all duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=1600&q=80" 
+                     alt="Logitech G Pro Superlight 2" 
+                     class="absolute inset-0 w-full h-full object-cover object-right">
+                <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full">
+                    <div class="max-w-xl">
+                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-zinc-800 text-rose-400 border border-zinc-700 mb-4">
+                            FLAGSHIP ESPORTS MOUSE
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
+                            Logitech G Pro X Superlight 2
+                        </h1>
+                        <p class="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed">
+                            Cảm biến HERO 2 độ phân giải 32.000 DPI, polling rate không dây 4000Hz, trọng lượng siêu nhẹ 60g chuẩn thi đấu quốc tế.
+                        </p>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">3.490.000₫</span>
+                            <span class="text-sm text-zinc-500 line-through">3.890.000₫</span>
+                            <span class="px-2 py-0.5 rounded text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30">-10%</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="window.addToCartById('cbv-01')" class="px-7 py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm transition shadow-xl shadow-white/10 active:scale-95 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Thêm Vào Giỏ
+                            </button>
+                            <button onclick="window.openProductDetailModal('cbv-01')" class="px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm border border-zinc-700 transition backdrop-blur">
+                                Xem Thông Số
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide absolute inset-0 w-full h-full flex items-center transition-all duration-700 ease-out opacity-0 pointer-events-none">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1600&q=80" 
+                     alt="BenQ Zowie 360Hz" 
+                     class="absolute inset-0 w-full h-full object-cover object-right">
+                <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full">
+                    <div class="max-w-xl">
+                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-cyan-950 text-cyan-400 border border-cyan-800 mb-4">
+                            PRO ESPORTS MONITOR
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
+                            BenQ Zowie XL2566K 360Hz
+                        </h1>
+                        <p class="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed">
+                            Màn hình thi đấu chính thức mọi giải đấu CS2 & Valorant. Tần số quét 360Hz kết hợp công nghệ DyAc+ triệt tiêu bóng mờ tuyệt đối.
+                        </p>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">16.990.000₫</span>
+                            <span class="text-sm text-zinc-500 line-through">18.490.000₫</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="window.addToCartById('cbv-09')" class="px-7 py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm transition shadow-xl shadow-white/10 active:scale-95 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Mua Ngay
+                            </button>
+                            <button onclick="window.openProductDetailModal('cbv-09')" class="px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm border border-zinc-700 transition backdrop-blur">
+                                Xem Chi Tiết
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide absolute inset-0 w-full h-full flex items-center transition-all duration-700 ease-out opacity-0 pointer-events-none">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=1600&q=80" 
+                     alt="Wooting 60HE" 
+                     class="absolute inset-0 w-full h-full object-cover object-right">
+                <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full">
+                    <div class="max-w-xl">
+                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-amber-950 text-amber-400 border border-amber-800 mb-4">
+                            HALL EFFECT RAPID TRIGGER
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
+                            Wooting 60HE+ Rapid Trigger
+                        </h1>
+                        <p class="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed">
+                            Bàn phím cơ số 1 thế giới cho game thủ FPS. Switch từ tính Lekker, điều chỉnh nhận phím tức thì từ 0.1mm ngắt skill cực bén.
+                        </p>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">4.890.000₫</span>
+                            <span class="text-sm text-zinc-500 line-through">5.390.000₫</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="window.addToCartById('cbv-05')" class="px-7 py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm transition shadow-xl shadow-white/10 active:scale-95 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Thêm Vào Giỏ
+                            </button>
+                            <button onclick="window.openProductDetailModal('cbv-05')" class="px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm border border-zinc-700 transition backdrop-blur">
+                                Xem Thông Số
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="hero-slide absolute inset-0 w-full h-full flex items-center transition-all duration-700 ease-out opacity-0 pointer-events-none">
+                <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1600&q=80" 
+                     alt="RTX 5090" 
+                     class="absolute inset-0 w-full h-full object-cover object-right">
+                <div class="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full">
+                    <div class="max-w-xl">
+                        <span class="inline-block px-3 py-1 rounded-full text-[11px] font-bold tracking-widest uppercase bg-rose-950 text-rose-400 border border-rose-800 mb-4">
+                            ULTIMATE GRAPHICS POWER
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
+                            NVIDIA GeForce RTX 5090 32GB
+                        </h1>
+                        <p class="text-sm sm:text-base text-zinc-300 mb-6 leading-relaxed">
+                            Siêu quái vật đồ họa thế hệ Blackwell. Bộ nhớ 32GB GDDR7 tốc độ 28Gbps, thống trị Gaming 4K Ray Tracing và tác vụ AI.
+                        </p>
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-2xl sm:text-3xl font-extrabold text-white">59.990.000₫</span>
+                            <span class="text-sm text-zinc-500 line-through">64.990.000₫</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="window.addToCartById('cbv-13')" class="px-7 py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm transition shadow-xl shadow-white/10 active:scale-95 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Đặt Hàng Ngay
+                            </button>
+                            <button onclick="window.openProductDetailModal('cbv-13')" class="px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white font-bold text-sm border border-zinc-700 transition backdrop-blur">
+                                Xem Chi Tiết
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Navigation Arrows -->
+            <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 backdrop-blur flex items-center justify-center transition active:scale-95">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 hover:bg-white hover:text-black text-white border border-white/20 backdrop-blur flex items-center justify-center transition active:scale-95">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <!-- Dots Indicator Container -->
+            <div id="sliderDots" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2"></div>
+        </section>
+
+        <!-- FLASH DEALS SECTION WITH COUNTDOWN -->
+        <section id="flashSale" class="py-10 bg-zinc-950 border-y border-zinc-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-2xl bg-gradient-to-r from-rose-950/40 via-zinc-900 to-zinc-900 border border-rose-500/20">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-600/20 border border-rose-500/30 flex items-center justify-center text-rose-400 text-2xl animate-pulse">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-xl font-extrabold text-white">FLASH SALE GIỜ VÀNG</h3>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-600 text-white animate-pulse">LIVE</span>
+                            </div>
+                            <p class="text-xs text-zinc-400 mt-0.5">Săn siêu phẩm gaming gear giá sốc giảm đến 15% kèm quà tặng</p>
+                        </div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="flex items-center gap-2 text-xs font-bold text-zinc-300">
+                        <span class="text-zinc-400 mr-1 hidden sm:inline">Kết thúc trong:</span>
+                        <div class="flex items-center gap-1.5 font-mono text-base font-extrabold text-white">
+                            <span id="saleHours" class="px-2.5 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700">08</span>
+                            <span class="text-rose-500">:</span>
+                            <span id="saleMinutes" class="px-2.5 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700">45</span>
+                            <span class="text-rose-500">:</span>
+                            <span id="saleSeconds" class="px-2.5 py-1.5 rounded-lg bg-zinc-800 border border-zinc-700">30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section class="py-16 bg-[#09090b]" id="categories">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-zinc-400">DANH MỤC SẢN PHẨM</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Lựa Chọn Theo Sở Thích Của Bạn</h2>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-2">Đa dạng lựa chọn từ gear thi đấu chuyên nghiệp đến linh kiện dựng case đỉnh cao.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Cat 1 -->
+                    <div class="gaming-card rounded-2xl overflow-hidden p-6 relative group cursor-pointer" onclick="filterCategory('mouse')">
+                        <div class="h-44 rounded-xl overflow-hidden mb-5 bg-zinc-900">
+                            <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Chuột Gaming" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-rose-400 transition">Chuột Gaming</h3>
+                        <p class="text-xs text-zinc-400 mt-1 mb-4">Siêu nhẹ, cảm biến đỉnh cao, 4K/8K Polling Rate</p>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span onclick="event.stopPropagation(); filterBrand('mouse', 'Logitech')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Logitech</span>
+                            <span onclick="event.stopPropagation(); filterBrand('mouse', 'Razer')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Razer</span>
+                            <span onclick="event.stopPropagation(); filterBrand('mouse', 'ATK')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">ATK</span>
+                            <span onclick="event.stopPropagation(); filterBrand('mouse', 'Mchose')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Mchose</span>
+                        </div>
+                    </div>
+
+                    <!-- Cat 2 -->
+                    <div class="gaming-card rounded-2xl overflow-hidden p-6 relative group cursor-pointer" onclick="filterCategory('keyboard')">
+                        <div class="h-44 rounded-xl overflow-hidden mb-5 bg-zinc-900">
+                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Bàn Phím Cơ" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition">Bàn Phím Cơ</h3>
+                        <p class="text-xs text-zinc-400 mt-1 mb-4">Rapid Trigger từ tính & Nhôm CNC cao cấp</p>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span onclick="event.stopPropagation(); filterBrand('keyboard', 'Wooting')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Wooting</span>
+                            <span onclick="event.stopPropagation(); filterBrand('keyboard', 'ATK')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">ATK</span>
+                            <span onclick="event.stopPropagation(); filterBrand('keyboard', 'Mchose')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Mchose</span>
+                            <span onclick="event.stopPropagation(); filterBrand('keyboard', 'Razer')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Razer</span>
+                        </div>
+                    </div>
+
+                    <!-- Cat 3 -->
+                    <div class="gaming-card rounded-2xl overflow-hidden p-6 relative group cursor-pointer" onclick="filterCategory('monitor')">
+                        <div class="h-44 rounded-xl overflow-hidden mb-5 bg-zinc-900">
+                            <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Màn Hình Gaming" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">Màn Hình Gaming</h3>
+                        <p class="text-xs text-zinc-400 mt-1 mb-4">Chuẩn thi đấu 165Hz - 360Hz & OLED vô cực</p>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span onclick="event.stopPropagation(); filterBrand('monitor', 'Zowie')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Zowie</span>
+                            <span onclick="event.stopPropagation(); filterBrand('monitor', 'AOC')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">AOC</span>
+                            <span onclick="event.stopPropagation(); filterBrand('monitor', 'Asus')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Asus</span>
+                            <span onclick="event.stopPropagation(); filterBrand('monitor', 'Samsung')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Samsung</span>
+                        </div>
+                    </div>
+
+                    <!-- Cat 4 -->
+                    <div class="gaming-card rounded-2xl overflow-hidden p-6 relative group cursor-pointer" onclick="filterCategory('gpu')">
+                        <div class="h-44 rounded-xl overflow-hidden mb-5 bg-zinc-900">
+                            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Card Màn Hình" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition">Card Đồ Họa (GPU)</h3>
+                        <p class="text-xs text-zinc-400 mt-1 mb-4">Hiệu năng đồ họa đỉnh cao & Ray Tracing</p>
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span onclick="event.stopPropagation(); filterBrand('gpu', 'Asus')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Asus</span>
+                            <span onclick="event.stopPropagation(); filterBrand('gpu', 'Colorful')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Colorful</span>
+                            <span onclick="event.stopPropagation(); filterBrand('gpu', 'MSI')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">MSI</span>
+                            <span onclick="event.stopPropagation(); filterBrand('gpu', 'Zotac')" class="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-[11px] text-zinc-300 transition">Zotac</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS SECTION -->
+        <section class="py-16 bg-zinc-950/60 border-t border-zinc-800/80" id="featured">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-rose-500">DANH MỤC TRỌNG TÂM</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Sản Phẩm Được Tuyển Chọn</h2>
+                    </div>
+
+                    <!-- Sort options -->
+                    <div class="flex items-center gap-3">
+                        <label for="sortSelect" class="text-xs font-semibold text-zinc-400">Sắp xếp:</label>
+                        <select id="sortSelect" class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-zinc-500 transition cursor-pointer">
+                            <option value="default">Mặc định</option>
+                            <option value="price-asc">Giá: Thấp đến Cao</option>
+                            <option value="price-desc">Giá: Cao đến Thấp</option>
+                            <option value="rating">Đánh giá cao nhất</option>
+                            <option value="discount">Giảm giá nhiều nhất</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Filter Category Tabs -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-4 scrollbar-none">
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-black transition shadow-lg shadow-white/10" data-cat="all">
+                        Tất Cả
+                    </button>
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition" data-cat="mouse">
+                        Chuột Gaming
+                    </button>
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition" data-cat="keyboard">
+                        Bàn Phím Cơ
+                    </button>
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition" data-cat="monitor">
+                        Màn Hình
+                    </button>
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition" data-cat="gpu">
+                        Card Màn Hình (GPU)
+                    </button>
+                    <button class="filter-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white border border-zinc-800 hover:border-zinc-700 transition" data-cat="audio">
+                        Tai Nghe Gaming
+                    </button>
+                </div>
+
+                <!-- Active Filters Display -->
+                <div id="activeFiltersBar" class="hidden"></div>
+
+                <!-- Products Count & Status -->
+                <div class="flex items-center justify-between text-xs text-zinc-400 mb-6">
+                    <span id="productsCountDisplay">Đang tải sản phẩm...</span>
+                    <span class="text-zinc-500"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> 100% Hàng chính hãng bảo hành 2-3 năm</span>
+                </div>
+
+                <!-- Product Grid Container -->
+                <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Products will be dynamically populated here by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUE PROPOSITIONS & WHY CHOOSE US -->
+        <section class="py-16 bg-[#0c0c0e] border-t border-zinc-800/80" id="about">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-truck-fast text-rose-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-sm">Giao Hàng Siêu Tốc</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Giao hỏa tốc 2 giờ tại Hà Nội & TP.HCM. Miễn phí vận chuyển toàn quốc từ 2 triệu.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-award text-amber-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-sm">Bảo Hành 1 Đổi 1</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Lỗi kỹ thuật từ nhà sản xuất được đổi mới trong 30 ngày đầu, bảo hành 12 - 36 tháng.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-headset text-cyan-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-sm">Hỗ Trợ Kỹ Thuật 24/7</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Tư vấn cấu hình máy, hướng dẫn mod bàn phím, tinh chỉnh chuột và màn hình miễn phí.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-credit-card text-emerald-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-sm">Thanh Toán Linh Hoạt</h4>
+                        <p class="text-xs text-zinc-400 mt-1">Hỗ trợ COD tận nơi, chuyển khoản ngân hàng QR, thẻ tín dụng và trả góp 0% lãi suất.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[420px] bg-zinc-900 border-l border-zinc-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between shadow-2xl">
+        <!-- Cart Header -->
+        <div class="p-5 border-b border-zinc-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-rose-500"></i>
+                <h3 class="font-bold text-white text-base">Giỏ Hàng Của Bạn</h3>
+            </div>
+            <button id="closeCartBtn" class="p-2 text-zinc-400 hover:text-white transition" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cartItemsContainer" class="p-4 flex-1 overflow-y-auto space-y-2">
+            <!-- Rendered by cart.js -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-5 border-t border-zinc-800 bg-zinc-950/80">
+            <!-- Voucher Input Box -->
+            <div class="mb-4">
+                <div class="flex gap-2">
+                    <input type="text" id="voucherInput" 
+                           placeholder="Nhập mã ưu đãi (GEARVIP10, FREESHIP)" 
+                           class="flex-1 bg-zinc-900 border border-zinc-800 focus:border-zinc-600 rounded-xl px-3 py-2 text-xs text-white uppercase outline-none font-mono">
+                    <button id="applyVoucherBtn" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-xs font-bold text-white transition">
+                        Áp Dụng
+                    </button>
+                </div>
+                <div id="voucherMsg"></div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="space-y-1.5 text-xs mb-4">
+                <div class="flex justify-between text-zinc-400">
+                    <span>Tạm tính:</span>
+                    <span id="cartSubtotal" class="font-semibold text-white">0₫</span>
+                </div>
+                <div class="flex justify-between text-zinc-400">
+                    <span>Phí vận chuyển:</span>
+                    <span id="cartShipping" class="font-semibold text-white">Miễn phí</span>
+                </div>
+                <div id="voucherDiscountRow" class="flex justify-between text-rose-400 hidden">
+                    <span>Giảm giá Voucher:</span>
+                    <span id="cartDiscount" class="font-bold">-0₫</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-white pt-2 border-t border-zinc-800">
+                    <span>Tổng thanh toán:</span>
+                    <span id="cartTotalPrice" class="text-rose-400">0₫</span>
+                </div>
+            </div>
+
+            <!-- Checkout Action -->
+            <button id="checkoutBtn" class="w-full py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm transition shadow-xl shadow-white/10 flex items-center justify-center gap-2 active:scale-95">
+                <i class="fa-solid fa-credit-card"></i> Tiến Hành Đặt Hàng
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
+            <button id="closeCheckoutBtn" class="absolute top-5 right-5 text-zinc-400 hover:text-white" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <h3 class="text-xl font-extrabold text-white mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-truck-ramp-box text-rose-500"></i> Thông Tin Giao Hàng & Thanh Toán
+            </h3>
+            <p class="text-xs text-zinc-400 mb-6">Vui lòng điền địa chỉ để Conbovuive Gear giao hàng tận nơi cho bạn.</p>
+
+            <form id="checkoutForm" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Họ và tên *</label>
+                        <input type="text" id="orderCustomerName" required placeholder="Nguyễn Văn A" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Số điện thoại *</label>
+                        <input type="tel" id="orderCustomerPhone" required placeholder="0912 345 678" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Email nhận thông báo đơn hàng</label>
+                    <input type="email" id="orderCustomerEmail" placeholder="email@example.com" 
+                           class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Địa chỉ nhận hàng (Số nhà, đường, phường, quận/huyện, tỉnh/TP) *</label>
+                    <input type="text" id="orderCustomerAddress" required placeholder="Ví dụ: 123 Đường Cầu Giấy, Hà Nội" 
+                           class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                </div>
+
+                <!-- Payment Methods -->
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-2">Phương thức thanh toán</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <label class="flex items-center gap-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-600 transition">
+                            <input type="radio" name="paymentMethod" value="COD" checked class="accent-rose-500">
+                            <span class="text-xs text-zinc-200 font-semibold">COD (Nhận hàng trả tiền)</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-600 transition">
+                            <input type="radio" name="paymentMethod" value="BANK_QR" class="accent-rose-500">
+                            <span class="text-xs text-zinc-200 font-semibold">Chuyển khoản QR</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 rounded-xl bg-zinc-950 border border-zinc-800 cursor-pointer hover:border-zinc-600 transition">
+                            <input type="radio" name="paymentMethod" value="VNPAY" class="accent-rose-500">
+                            <span class="text-xs text-zinc-200 font-semibold">Ví VNPAY / MoMo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Ghi chú thêm cho shipper (tùy chọn)</label>
+                    <textarea id="orderCustomerNote" rows="2" placeholder="Giao giờ hành chính, gọi trước khi đến..." 
+                              class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-zinc-500 transition"></textarea>
+                </div>
+
+                <!-- Order summary list snippet -->
+                <div class="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800">
+                    <div class="text-xs font-bold text-zinc-400 mb-2">Tóm tắt đơn hàng:</div>
+                    <div id="checkoutSummaryItems" class="space-y-1 mb-2"></div>
+                    <div class="flex justify-between items-center pt-2 border-t border-zinc-800 text-sm font-extrabold text-white">
+                        <span>Tổng thanh toán:</span>
+                        <span id="checkoutSummaryTotal" class="text-rose-400">0₫</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-sm transition shadow-xl shadow-rose-600/20">
+                    Xác Nhận Đặt Hàng Ngay
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div id="orderSuccessOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-md w-full p-6 text-center shadow-2xl">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-white mb-2">Đặt Hàng Thành Công!</h3>
+            <p class="text-xs text-zinc-400 mb-5 leading-relaxed">
+                Cảm ơn bạn đã tin tưởng Conbovuive Gear. Bộ phận chăm sóc khách hàng sẽ liên hệ xác nhận và đóng gói gửi tới bạn trong thời gian sớm nhất!
+            </p>
+
+            <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-left text-xs space-y-2 mb-6">
+                <div class="flex justify-between">
+                    <span class="text-zinc-500">Mã đơn hàng:</span>
+                    <span id="successOrderCode" class="font-mono font-bold text-rose-400">#CBV-000000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-zinc-500">Khách hàng:</span>
+                    <span id="successCustomerName" class="font-semibold text-white">Khách hàng</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-zinc-500">Tổng thanh toán:</span>
+                    <span id="successOrderTotal" class="font-bold text-white">0₫</span>
+                </div>
+            </div>
+
+            <button onclick="document.getElementById('orderSuccessOverlay').classList.add('hidden')" class="w-full py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs transition">
+                Tiếp Tục Mua Sắm
+            </button>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL (QUICK VIEW) -->
+    <div id="detailModalOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 relative">
+            <button id="closeDetailBtn" class="absolute top-5 right-5 text-zinc-400 hover:text-white transition" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Gallery -->
+                <div>
+                    <div class="h-64 sm:h-80 rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800 mb-3">
+                        <img id="modalMainImg" src="" alt="Detail" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Thumbnails -->
+                    <div id="modalGalleryThumbs" class="flex gap-2"></div>
+                </div>
+
+                <!-- Info & Specs -->
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span id="modalCat" class="badge-tag bg-zinc-800 text-zinc-300 border border-zinc-700">Category</span>
+                            <span id="modalBrand" class="badge-tag bg-rose-500/20 text-rose-400 border border-rose-500/30">Brand</span>
+                        </div>
+
+                        <h2 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-white mb-2 leading-snug">Product Name</h2>
+
+                        <div class="flex items-baseline gap-3 mb-3">
+                            <span id="modalPrice" class="text-2xl font-extrabold text-white">0₫</span>
+                            <span id="modalOldPrice" class="text-sm text-zinc-500 line-through">0₫</span>
+                        </div>
+
+                        <div id="modalStock" class="flex items-center gap-2 text-xs text-zinc-300 mb-4">
+                            <!-- In stock status -->
+                        </div>
+
+                        <p id="modalDesc" class="text-xs sm:text-sm text-zinc-400 mb-5 leading-relaxed">
+                            Mô tả chi tiết sản phẩm...
+                        </p>
+
+                        <!-- Specs Table -->
+                        <div class="mb-6">
+                            <h5 class="text-xs font-bold uppercase tracking-wider text-white mb-2">Thông số kỹ thuật chính</h5>
+                            <table class="w-full">
+                                <tbody id="modalSpecsTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Action -->
+                    <div class="pt-4 border-t border-zinc-800">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="flex items-center border border-zinc-700 rounded-xl bg-zinc-800 overflow-hidden">
+                                <button onclick="window.changeModalQty(-1)" class="w-9 h-9 flex items-center justify-center hover:bg-zinc-700 text-white font-bold">-</button>
+                                <span id="modalQty" class="w-10 text-center font-bold text-white text-sm">1</span>
+                                <button onclick="window.changeModalQty(1)" class="w-9 h-9 flex items-center justify-center hover:bg-zinc-700 text-white font-bold">+</button>
+                            </div>
+                            <button onclick="window.modalAddToCart()" class="flex-1 py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs sm:text-sm transition shadow-lg shadow-white/10 flex items-center justify-center gap-2 active:scale-95">
+                                <i class="fa-solid fa-cart-shopping"></i> Thêm Vào Giỏ
+                            </button>
+                        </div>
+                        <button onclick="window.modalBuyNow()" class="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-extrabold text-xs sm:text-sm transition shadow-lg shadow-rose-600/20 active:scale-95">
+                            Mua Ngay Bằng 1 Cú Nhấp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTH MODAL (LOGIN / REGISTER) -->
+    <div id="authModalOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-sm w-full p-6 sm:p-8 relative shadow-2xl">
+            <button id="closeAuthBtn" class="absolute top-5 right-5 text-zinc-400 hover:text-white" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Login Form -->
+            <div id="loginFormContainer">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-extrabold text-white">Đăng Nhập Tài Khoản</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Truy cập để quản lý đơn hàng & tích điểm VIP</p>
+                </div>
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Email hoặc Tên đăng nhập</label>
+                        <input type="text" id="loginEmail" required placeholder="gamer@conbovuive.vn" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1.5">Mật khẩu</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs transition">
+                        Đăng Nhập
+                    </button>
+                </form>
+                <p class="text-center text-xs text-zinc-400 mt-5">
+                    Chưa có tài khoản? <a href="#" id="switchToRegister" class="text-rose-400 hover:underline font-bold">Đăng ký ngay</a>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerFormContainer" class="hidden">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-extrabold text-white">Tạo Tài Khoản Mới</h3>
+                    <p class="text-xs text-zinc-400 mt-1">Gia nhập cộng đồng Conbovuive Gear nhận quà 100K</p>
+                </div>
+                <form id="registerForm" class="space-y-3.5">
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1">Họ và tên</label>
+                        <input type="text" id="regName" required placeholder="Nguyễn Văn A" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1">Email</label>
+                        <input type="email" id="regEmail" required placeholder="gamer@conbovuive.vn" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1">Số điện thoại</label>
+                        <input type="tel" id="regPhone" placeholder="0912 345 678" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-zinc-300 mb-1">Mật khẩu</label>
+                        <input type="password" id="regPassword" required placeholder="••••••••" 
+                               class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2 text-xs text-white outline-none focus:border-zinc-500 transition">
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs transition">
+                        Đăng Ký
+                    </button>
+                </form>
+                <p class="text-center text-xs text-zinc-400 mt-5">
+                    Đã có tài khoản? <a href="#" id="switchToLogin" class="text-rose-400 hover:underline font-bold">Đăng nhập ngay</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDERS HISTORY MODAL -->
+    <div id="ordersHistoryOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 relative shadow-2xl">
+            <button id="closeOrdersBtn" class="absolute top-5 right-5 text-zinc-400 hover:text-white" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 class="text-lg font-extrabold text-white mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-rose-500"></i> Lịch Sử Đơn Hàng Của Bạn
+            </h3>
+            <p class="text-xs text-zinc-400 mb-4">Danh sách các đơn hàng đã đặt tại Conbovuive Gear</p>
+            <div id="userOrdersList" class="space-y-3"></div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP FLOATING BUTTON -->
+    <button id="backToTopBtn" class="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-zinc-900 hover:bg-white hover:text-black text-zinc-300 border border-zinc-700 shadow-2xl backdrop-blur flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-zinc-800/80 pt-16 pb-12 text-zinc-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                
+                <!-- Col 1: About & Logo -->
+                <div class="lg:col-span-2">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-rose-500 to-violet-600 flex items-center justify-center font-extrabold text-white text-base shadow-lg shadow-rose-500/20">
+                            ⚡
+                        </div>
+                        <div class="font-extrabold text-lg text-white">CONBOVUIVE<span class="text-rose-500">GEAR</span></div>
+                    </a>
+                    <p class="text-zinc-400 leading-relaxed max-w-sm mb-4">
+                        Hệ thống cung cấp thiết bị gaming cao cấp, switch từ tính Rapid Trigger, chuột siêu nhẹ và card đồ họa thế hệ mới phục vụ cộng đồng game thủ và streamer.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-white transition"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 flex items-center justify-center text-zinc-300 hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Categories -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-4">Danh Mục</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#featured" onclick="filterCategory('mouse')" class="hover:text-white transition">Chuột Gaming</a></li>
+                        <li><a href="#featured" onclick="filterCategory('keyboard')" class="hover:text-white transition">Bàn Phím Cơ</a></li>
+                        <li><a href="#featured" onclick="filterCategory('monitor')" class="hover:text-white transition">Màn Hình Gaming</a></li>
+                        <li><a href="#featured" onclick="filterCategory('gpu')" class="hover:text-white transition">Card Màn Hình (GPU)</a></li>
+                        <li><a href="#featured" onclick="filterCategory('audio')" class="hover:text-white transition">Tai Nghe Gaming</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Support -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-4">Chính Sách & Hỗ Trợ</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-white transition">Chính Sách Bảo Hành 1 Đổi 1</a></li>
+                        <li><a href="#" class="hover:text-white transition">Chính Sách Giao Hàng Toàn Quốc</a></li>
+                        <li><a href="#" class="hover:text-white transition">Hướng Dẫn Mua Hàng & Trả Góp</a></li>
+                        <li><a href="#" class="hover:text-white transition">Tra Cứu Tình Trạng Đơn Hàng</a></li>
+                        <li><a href="#" class="hover:text-white transition">Quy Định Đổi Trả 30 Ngày</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-4">Đăng Ký Nhận Khuyến Mãi</h4>
+                    <p class="text-zinc-400 mb-3">Nhận ngay voucher 100.000₫ cho đơn hàng đầu tiên.</p>
+                    <div class="flex gap-1.5">
+                        <input type="email" placeholder="Email của bạn..." class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white outline-none focus:border-zinc-600">
+                        <button onclick="window.showToast('Cảm ơn bạn đã đăng ký nhận tin!', 'success')" class="px-3 py-2 rounded-lg bg-white hover:bg-zinc-200 text-black font-bold text-xs transition">Gửi</button>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-zinc-900">
+                        <span class="text-zinc-500 text-[11px]">Hotline: <strong class="text-white">1900 6868</strong> (8h - 22h)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+                <p>&copy; 2026 Conbovuive Gear. Thiết kế với Node.js, Express & Tailwind CSS hiện đại.</p>
+                <div class="flex items-center gap-4">
+                    <span>Phương thức thanh toán hỗ trợ: COD, VietQR, VNPAY, MoMo</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Client JS Application -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

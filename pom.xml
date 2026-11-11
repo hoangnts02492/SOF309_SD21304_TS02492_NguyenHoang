@@ -16,11 +16,36 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>3.2.5</spring.boot.version>
         <junit.jupiter.version>5.10.2</junit.jupiter.version>
         <selenium.version>4.20.0</selenium.version>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
+        <!-- ============================================== -->
+        <!-- SPRING BOOT WEB & VALIDATION                  -->
+        <!-- ============================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
         <!-- ============================================== -->
         <!-- [Y3] JUNIT 5 TESTING FRAMEWORK                -->
         <!-- ============================================== -->
@@ -28,6 +53,11 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -40,8 +70,6 @@
             <version>${selenium.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- (Tùy chọn) Web Server & DB cũ của sinh viên có thể dán thêm vào đây -->
     </dependencies>
 
     <build>
@@ -57,6 +85,13 @@
                 </configuration>
             </plugin>
 
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+            </plugin>
+
             <!-- Maven Surefire Plugin để tự động chạy Test -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -66,4 +101,3 @@
         </plugins>
     </build>
 </project>
-

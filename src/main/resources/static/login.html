@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Conbovuive Gear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tailwind.css">
+</head>
+<body class="bg-zinc-950 text-white min-h-screen flex items-center justify-center font-['Plus_Jakarta_Sans'] p-4">
+    <div class="w-full max-w-md bg-zinc-900 border border-zinc-800 rounded-2xl p-8 shadow-2xl">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-black text-white">CONBOVUIVE GEAR</h1>
+            <p class="text-xs text-zinc-400 mt-1">Đăng nhập tài khoản để mua sắm & quản lý đơn hàng</p>
+        </div>
+
+        <div id="error-message" class="hidden mb-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs text-center font-semibold"></div>
+
+        <form id="loginForm" class="space-y-4" onsubmit="handleLogin(event)">
+            <div>
+                <label class="block text-xs font-semibold text-zinc-300 mb-1">Tên đăng nhập / Email</label>
+                <input type="text" id="username" name="username" required placeholder="Nhập tài khoản (admin, hoangnguyen)"
+                       class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-zinc-300 mb-1">Mật khẩu</label>
+                <input type="password" id="password" name="password" required placeholder="Nhập mật khẩu"
+                       class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-white outline-none focus:border-zinc-500 transition">
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-xs transition">
+                Đăng Nhập
+            </button>
+        </form>
+
+        <div class="mt-6 text-center text-xs text-zinc-400">
+            <a href="/" class="text-white hover:underline">← Quay về Trang Chủ</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value.trim();
+            const err = document.getElementById('error-message');
+
+            fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: u, password: p })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('cbv_user', JSON.stringify(data.data.user));
+                    window.location.href = '/?login_success=1';
+                } else {
+                    err.textContent = data.message || 'Tài khoản hoặc mật khẩu không chính xác';
+                    err.classList.remove('hidden');
+                }
+            })
+            .catch(() => {
+                err.textContent = 'Lỗi kết nối máy chủ';
+                err.classList.remove('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
+
